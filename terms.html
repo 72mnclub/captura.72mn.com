@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Use — Notch</title>
+<style>
+:root {
+  --bg: #FBFAFC;
+  --text: #1D1D1F;
+  --text-2: #424245;
+  --muted: #6E6E73;
+  --line: #E5E5EA;
+  --accent: #5E5CE6;
+  --accent-bg: #EFEDFF;
+  --max-w: 760px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(251, 250, 252, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; font-size: 16px; letter-spacing: -0.01em;
+  color: var(--text);
+}
+.brand .logo-svg {
+  width: 30px; height: 30px;
+  display: block; border-radius: 7px;
+}
+.nav .back {
+  font-size: 14px; color: var(--muted);
+  font-weight: 500;
+}
+.nav .back:hover { color: var(--text); }
+
+main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+}
+h1 {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+.subtitle {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 48px;
+}
+h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 44px 0 14px;
+}
+p {
+  margin-bottom: 14px;
+  color: var(--text-2);
+}
+ul { margin: 12px 0 14px 22px; }
+ul li { margin-bottom: 8px; color: var(--text-2); }
+.lead {
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 32px;
+  padding: 20px 22px;
+  background: var(--accent-bg);
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+}
+.placeholder-note {
+  margin-top: 60px;
+  padding: 16px 20px;
+  background: #FFF4E5;
+  border-radius: 10px;
+  border-left: 3px solid #FF9500;
+  font-size: 13.5px;
+  color: #8A5300;
+}
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+footer .footer-links {
+  display: flex; justify-content: center; gap: 18px; margin-bottom: 8px;
+}
+footer a { color: var(--muted); font-weight: 500; }
+footer a:hover { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand">
+      <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Notch logo">
+        <defs>
+          <linearGradient id="notch-bg-nav" x1="0.5" y1="0" x2="0.5" y2="1">
+            <stop offset="0%" stop-color="#E8DCBE"/>
+            <stop offset="100%" stop-color="#A8B5C4"/>
+          </linearGradient>
+          <linearGradient id="notch-slash-nav" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#A0533A"/>
+            <stop offset="100%" stop-color="#7A3F2D"/>
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" rx="22" fill="url(#notch-bg-nav)"/>
+        <g stroke-linecap="round">
+          <line x1="28" y1="22" x2="28" y2="78" stroke="#1A2535" stroke-width="9"/>
+          <line x1="42" y1="22" x2="42" y2="78" stroke="#1A2535" stroke-width="9"/>
+          <line x1="58" y1="22" x2="58" y2="78" stroke="#1A2535" stroke-width="9"/>
+          <line x1="72" y1="22" x2="72" y2="78" stroke="#1A2535" stroke-width="9"/>
+          <line x1="18" y1="25" x2="82" y2="78" stroke="url(#notch-slash-nav)" stroke-width="9"/>
+        </g>
+      </svg>
+      <span>Notch</span>
+    </a>
+    <a href="/" class="back">← Back to home</a>
+  </div>
+</nav>
+
+<main>
+  <h1>Terms of Use</h1>
+  <p class="subtitle">Last updated: June 9, 2026</p>
+
+  <div class="lead">
+    By using Notch, you agree to these terms. We've kept them as short as we honestly could. If something here surprises you, that's a bug — please write us.
+  </div>
+
+  <h2>1. The agreement</h2>
+  <p>These terms are an agreement between you and Notch (operated by 72mn LLC, a California limited liability company). When you download or use the Notch app or this website, you accept these terms. If you don't agree, please don't use Notch.</p>
+
+  <h2>2. Your license to use Notch</h2>
+  <p>We grant you a personal, non-exclusive, non-transferable, revocable license to use Notch on your supported Apple devices for your own use. You may not:</p>
+  <ul>
+    <li>Resell, sublicense, or commercially redistribute the app</li>
+    <li>Reverse-engineer or attempt to extract its source code (other than for personal accessibility / interoperability use permitted by law)</li>
+    <li>Use it to harass, defraud, or harm others, or to store or process unlawful content</li>
+    <li>Use automated systems to abuse the service or scrape our backend</li>
+  </ul>
+
+  <h2>3. Your content is yours</h2>
+  <p>Every note you make in Notch belongs to you. We do not claim ownership of your notes. We do not use your notes to train any AI model. We do not show your notes to anyone other than the AI provider routing your specific request (and only for that request — see the <a href="/privacy">Privacy Policy</a> for detail).</p>
+  <p>You're responsible for the content you create. Don't store anything that's illegal where you live.</p>
+
+  <h2>4. Free and Plus</h2>
+  <p>Notch has two tiers:</p>
+  <ul>
+    <li><strong>Free</strong> — usage is metered in credits. Each AI action (clean / weave / discuss / reflect / web search) costs a small number of credits. New accounts get a starter balance. When you run out, you can buy more or upgrade.</li>
+    <li><strong>Plus</strong> — a monthly or annual subscription billed via Apple. AI actions and tools are included (within fair-use limits, which are generous and only exist to stop genuine abuse). Subscription auto-renews; cancel anytime in your Apple account settings.</li>
+  </ul>
+  <p>Pricing is shown in the app before you commit. We may adjust pricing for future billing cycles with at least 30 days' notice.</p>
+
+  <h2>5. The AI is a tool, not an oracle</h2>
+  <p>AI outputs (cleaned notes, drafts, reflections, search summaries) can be wrong, incomplete, or biased. We do our best to ground answers in your own notes and to cite sources when AI is searching the web, but you should treat AI output as a starting point — not a final source of truth, financial advice, medical advice, legal advice, or anything similar.</p>
+
+  <h2>6. Service availability</h2>
+  <p>We aim for reliable service but we don't guarantee uninterrupted access. Cloud AI providers occasionally have outages. Network connectivity affects voice transcription speed and AI features. Your locally-stored notes are always accessible from your phone regardless of any service interruption — that's the whole point of local-first.</p>
+
+  <h2>7. Termination</h2>
+  <p>You can stop using Notch and delete your account at any time. We may suspend or terminate accounts that violate these terms, abuse the service, or pose a security risk — usually with notice unless the violation is severe.</p>
+  <p>If you cancel a Plus subscription, you keep Plus features until the end of your current billing period.</p>
+
+  <h2>8. Disclaimers and liability</h2>
+  <p>Notch is provided "as is." We disclaim, to the maximum extent allowed by law, all implied warranties (merchantability, fitness for a particular purpose, non-infringement).</p>
+  <p>Our liability for any claim related to Notch is limited to the greater of (a) the amount you paid us in the 12 months before the claim, or (b) USD $50.</p>
+  <p>We're not liable for indirect, incidental, consequential, or punitive damages — including lost data, lost profits, or lost time — except where prohibited by law.</p>
+
+  <h2>9. Changes to these terms</h2>
+  <p>We may update these terms. For material changes we'll update the "Last updated" date and notify you in-app or by email. Continued use of Notch after changes go live means you accept them. If you don't, you can stop using Notch.</p>
+
+  <h2>10. Governing law</h2>
+  <p>These terms are governed by the laws of the State of California, USA. Any dispute that can't be resolved informally goes to the state or federal courts in San Francisco County, California.</p>
+
+  <h2>11. Contact</h2>
+  <p>Questions? Reach us at <a href="mailto:hello@notch.72mn.com">hello@notch.72mn.com</a>.</p>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="mailto:hello@notch.72mn.com">Contact</a>
+  </div>
+  <div>© 2026 Notch · Built in California.</div>
+</footer>
+
+</body>
+</html>

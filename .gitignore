@@ -1,0 +1,8 @@
+.DS_Store
+.vscode/
+.idea/
+*.log
+node_modules/
+
+# Internal dev notes — not for public repo
+README.md

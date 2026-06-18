@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notch — Compound your thoughts</title>
+<style>
+/* ──────────────────────────────────────────────────────────────────
+   Notch — landing page mock
+   单文件、双语切换、Apple-style aesthetic
+   ────────────────────────────────────────────────────────────────── */
+
+:root {
+  --bg: #FBFAFC;
+  --bg-soft: #F2F2F7;
+  --card: #FFFFFF;
+  --text: #1D1D1F;
+  --text-2: #424245;
+  --muted: #6E6E73;
+  --line: #E5E5EA;
+  --accent: #5E5CE6;
+  --accent-2: #7C6AE0;
+  --accent-bg: #EFEDFF;
+  --warm: #FF9F0A;
+  --warm-bg: #FFF6E5;
+  --green: #34C759;
+  --green-bg: #E6F8EB;
+  --max-w: 1080px;
+  --radius: 16px;
+  --radius-s: 10px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(20,16,60,0.06);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.05), 0 24px 60px rgba(20,16,60,0.10);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+
+/* Lang toggle — body class controls visibility */
+body[data-lang="en"] .zh { display: none !important; }
+body[data-lang="zh"] .en { display: none !important; }
+
+/* ── Top nav ─────────────────────────────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0; z-index: 50;
+  background: rgba(251, 250, 252, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; font-size: 16px; letter-spacing: -0.01em;
+}
+.brand .logo {
+  width: 28px; height: 28px; border-radius: 8px;
+  background: linear-gradient(135deg, #7C6AE0 0%, #5E5CE6 100%);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 14px; font-weight: 800;
+}
+.brand .logo-svg {
+  width: 30px; height: 30px;
+  display: block;
+  border-radius: 7px;
+  overflow: hidden;
+}
+.lang-toggle {
+  display: inline-flex;
+  background: var(--bg-soft); border-radius: 100px; padding: 3px;
+  font-size: 13px; font-weight: 500;
+}
+.lang-toggle button {
+  border: none; background: transparent; cursor: pointer;
+  padding: 6px 14px; border-radius: 100px;
+  color: var(--muted);
+  font-family: inherit; font-size: 13px; font-weight: 500;
+}
+.lang-toggle button.active {
+  background: var(--card); color: var(--text);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* ── Hero ─────────────────────────────────────────────────────── */
+.hero {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 80px 24px 60px;
+  text-align: center;
+}
+.eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border-radius: 100px;
+  font-size: 12.5px; font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 22px;
+}
+.hero h1 {
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  background: linear-gradient(180deg, #1D1D1F 0%, #3A3A3C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 28px;
+}
+.hero h1 .zh { font-size: 72px; letter-spacing: -0.02em; }
+.hero .sub-1 {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text-2);
+  max-width: 720px;
+  margin: 0 auto 18px;
+}
+.hero .sub-2 {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 740px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 22px;
+  background: var(--text); color: white;
+  border-radius: 100px;
+  font-size: 15px; font-weight: 600;
+  border: none; cursor: pointer;
+  font-family: inherit;
+}
+.cta.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+.cta .pill {
+  background: rgba(255,255,255,0.18);
+  padding: 2px 8px; border-radius: 100px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* Hero visual — minimal phone mockup */
+.hero-visual {
+  margin: 60px auto 0;
+  max-width: 420px;
+  position: relative;
+}
+.phone {
+  background: linear-gradient(180deg, #1D1D1F 0%, #2C2C2E 100%);
+  border-radius: 38px;
+  padding: 12px;
+  box-shadow: var(--shadow-lg);
+}
+.phone-screen {
+  background: var(--card);
+  border-radius: 28px;
+  aspect-ratio: 9 / 18;
+  padding: 24px 18px 18px;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.phone-screen::before {
+  content: '';
+  position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  width: 86px; height: 24px; background: #1D1D1F; border-radius: 100px;
+}
+.phone-chat { padding-top: 32px; flex: 1; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+.bubble {
+  padding: 10px 14px; border-radius: 16px; font-size: 12.5px;
+  max-width: 80%; line-height: 1.5;
+}
+.bubble.user {
+  background: var(--accent); color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+.bubble.ai {
+  background: var(--bg-soft); color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+.bubble.ai .ai-tag { font-size: 10px; font-weight: 700; color: var(--accent); letter-spacing: 0.05em; display: block; margin-bottom: 4px; }
+.bubble.card {
+  background: white; border: 1px solid var(--line);
+  font-size: 11.5px;
+}
+.bubble.card .card-h { font-weight: 700; margin-bottom: 4px; }
+.bubble.card .card-meta { color: var(--muted); font-size: 10px; }
+.phone-input {
+  margin-top: 10px;
+  display: flex; align-items: center; gap: 8px;
+  background: var(--bg-soft); border-radius: 100px;
+  padding: 6px 6px 6px 14px;
+}
+.phone-input .placeholder { flex: 1; color: var(--muted); font-size: 12px; }
+.mic {
+  width: 32px; height: 32px; border-radius: 100px;
+  background: var(--accent); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+
+/* ── Generic section ─────────────────────────────────────────── */
+section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+.eyebrow-line {
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+h2.section-title {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  max-width: 760px;
+}
+.section-sub {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 720px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* ── Elevator contrast section ──────────────────────────────── */
+.elevator {
+  background: linear-gradient(180deg, #FBFAFC 0%, #F2EEFF 100%);
+  text-align: center;
+  border-radius: 28px;
+  padding: 80px 40px;
+  margin: 60px auto;
+  max-width: var(--max-w);
+}
+.elevator h2 {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 28px;
+  max-width: 820px; margin-left: auto; margin-right: auto;
+}
+.elevator p {
+  font-size: 19px;
+  color: var(--text-2);
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.elevator p strong { color: var(--text); font-weight: 600; }
+
+/* ── Brand provenance section ─────────────────────────────── */
+.provenance {
+  max-width: var(--max-w);
+  margin: 80px auto;
+  padding: 80px 40px 60px;
+  border-radius: 28px;
+  background:
+    radial-gradient(ellipse at top, rgba(245, 224, 184, 0.55) 0%, transparent 60%),
+    linear-gradient(180deg, #FAF4E6 0%, #F2E7CE 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.provenance::before {
+  /* Subtle aged-paper grain */
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(139, 107, 61, 0.015) 2px,
+    rgba(139, 107, 61, 0.015) 3px
+  );
+  pointer-events: none;
+}
+.provenance .eyebrow-line {
+  color: #8B6B3D;
+  margin-bottom: 18px;
+  position: relative;
+}
+.provenance h2 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin-bottom: 28px;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #3A2E1E;
+  position: relative;
+}
+.provenance p {
+  font-size: 17px;
+  color: #5C4E37;
+  max-width: 680px;
+  margin: 0 auto 50px;
+  line-height: 1.75;
+  position: relative;
+}
+.provenance .tally-strip {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 24px 0 8px;
+}
+.provenance .tally-strip svg {
+  max-width: 100%;
+  height: auto;
+}
+.provenance .tally-caption {
+  margin-top: 18px;
+  font-size: 12.5px;
+  color: #8B6B3D;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+
+@media (max-width: 720px) {
+  .provenance { padding: 56px 24px 40px; border-radius: 20px; }
+  .provenance h2 { font-size: 34px; }
+  .provenance p { font-size: 15px; }
+}
+
+/* ── Value pair (elevator + files side-by-side) ───────────── */
+.value-pair {
+  max-width: var(--max-w);
+  margin: 60px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+.value-pair .elevator,
+.value-pair .files {
+  margin: 0;
+  max-width: none;
+  padding: 48px 36px;
+  height: 100%;
+  border-radius: 24px;
+}
+.value-pair .elevator h2,
+.value-pair .files h2 {
+  font-size: 34px;
+  line-height: 1.08;
+  margin-bottom: 18px;
+}
+.value-pair .elevator p {
+  font-size: 16px;
+  line-height: 1.65;
+}
+.value-pair .files .sub {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+.value-pair .files .eyebrow-line {
+  margin-bottom: 10px;
+}
+.value-pair .files-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  max-width: none;
+}
+.value-pair .file-action {
+  padding: 16px 14px;
+}
+.value-pair .file-action .icon {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.value-pair .file-action .name { font-size: 13px; }
+.value-pair .file-action .desc { font-size: 11.5px; line-height: 1.45; }
+
+/* Left side AI grid — mirrors files-grid but light theme */
+.value-pair .elevator .ai-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 28px;
+}
+.value-pair .elevator .ai-action {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(94, 92, 230, 0.10);
+  border-radius: 16px;
+  padding: 16px 14px;
+  text-align: left;
+}
+.value-pair .elevator .ai-action .icon {
+  width: 30px; height: 30px;
+  background: rgba(94, 92, 230, 0.13);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+.value-pair .elevator .ai-action .name {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+.value-pair .elevator .ai-action .desc {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.value-pair .elevator .ai-action.signature {
+  background: linear-gradient(135deg, rgba(94, 92, 230, 0.18) 0%, rgba(124, 106, 224, 0.08) 100%);
+  border-color: rgba(124, 106, 224, 0.32);
+}
+.value-pair .elevator .ai-action.signature .name::after {
+  content: ' · COMPOUND';
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 880px) {
+  .value-pair { grid-template-columns: 1fr; gap: 14px; }
+  .value-pair .elevator h2,
+  .value-pair .files h2 { font-size: 30px; }
+}
+
+/* ── 4-step value chain ─────────────────────────────────────── */
+.chain {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 40px;
+}
+.chain-step {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  position: relative;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.chain-step::after {
+  content: '→';
+  position: absolute;
+  right: -14px; top: 50%; transform: translateY(-50%);
+  background: var(--bg);
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 18px;
+  border-radius: 100px;
+  z-index: 1;
+}
+.chain-step:last-child::after { display: none; }
+.chain-step .step-num {
+  font-size: 11px; font-weight: 700; color: var(--accent);
+  letter-spacing: 0.06em;
+}
+.chain-step .step-name {
+  font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.chain-step .step-desc {
+  font-size: 12.5px; color: var(--muted); line-height: 1.5;
+}
+.chain-step.cold { background: #FAFAFC; }
+.chain-step.warm { background: linear-gradient(180deg, #FFFFFF 0%, #F2EEFF 100%); border-color: #DDD3FF; }
+
+@media (max-width: 880px) {
+  .chain { grid-template-columns: 1fr 1fr; }
+  .chain-step::after { display: none; }
+}
+
+/* ── Archetype cards ─────────────────────────────────────────── */
+.archetypes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 40px;
+}
+.arch-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  padding: 32px;
+  display: flex; flex-direction: column; gap: 14px;
+  position: relative;
+}
+.arch-card .badge-row {
+  display: flex; align-items: center; gap: 10px;
+}
+.arch-card .level {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  padding: 3px 8px; border-radius: 5px;
+}
+.arch-card .level.entry { background: var(--bg-soft); color: var(--muted); }
+.arch-card .level.hi { background: var(--accent-bg); color: var(--accent); }
+.arch-card h3 {
+  font-size: 28px; font-weight: 800;
+  letter-spacing: -0.02em; line-height: 1.15;
+}
+.arch-card .scene {
+  font-size: 15px; color: var(--text-2); line-height: 1.55;
+}
+.arch-card .visual {
+  background: var(--bg-soft); border-radius: 12px;
+  padding: 14px 16px; font-size: 13px; color: var(--text);
+  margin-top: 6px;
+}
+.arch-card .visual.fancy {
+  background: linear-gradient(135deg, #F4F1FF 0%, #EBE6FF 100%);
+}
+.arch-card .visual .v-label {
+  font-size: 11px; font-weight: 700; color: var(--accent);
+  letter-spacing: 0.04em; margin-bottom: 6px;
+}
+.arch-card .visual.plain .v-label { color: var(--muted); }
+.arch-card .visual .v-content { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; line-height: 1.6; color: var(--text-2); }
+
+@media (max-width: 720px) { .archetypes { grid-template-columns: 1fr; } }
+
+/* ── For-anyone subhead ───────────────────────────────────── */
+.for-anyone {
+  text-align: center;
+  padding: 100px 24px 60px;
+}
+.for-anyone h2 {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  max-width: 860px; margin: 0 auto;
+  background: linear-gradient(135deg, #1D1D1F 0%, #5E5CE6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Persona grid ─────────────────────────────────────────── */
+.personas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+.persona {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.persona .icon {
+  font-size: 28px; line-height: 1;
+}
+.persona .who {
+  font-size: 15px; font-weight: 700;
+}
+.persona .how {
+  font-size: 13.5px; color: var(--muted); line-height: 1.55;
+}
+.persona .how strong { color: var(--text-2); font-weight: 600; }
+.persona .product {
+  background: linear-gradient(180deg, #FAF9FE 0%, #F4F1FB 100%);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.persona .product-label {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.persona .product-content {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 10.5px;
+  color: var(--text-2);
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+@media (max-width: 880px) { .personas { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .personas { grid-template-columns: 1fr; } }
+
+/* ── Files Yours section ─────────────────────────────────── */
+.files {
+  background: linear-gradient(180deg, #1D1D1F 0%, #2C2C2E 100%);
+  color: white;
+  border-radius: 28px;
+  padding: 80px 40px;
+  margin: 80px auto;
+  max-width: var(--max-w);
+  text-align: center;
+}
+.files .eyebrow-line { color: #B8B3FF; }
+.files h2 {
+  font-size: 52px; font-weight: 800; letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  line-height: 1.05;
+}
+.files .sub {
+  color: #C7C7CC; font-size: 18px; max-width: 720px; margin: 0 auto 44px;
+  line-height: 1.6;
+}
+.files-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.file-action {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  text-align: left;
+}
+.file-action .icon {
+  width: 36px; height: 36px;
+  background: rgba(94, 92, 230, 0.25);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.file-action .name {
+  font-size: 15px; font-weight: 700; margin-bottom: 6px;
+}
+.file-action .desc {
+  font-size: 12.5px; color: #AEAEB2; line-height: 1.5;
+}
+.file-action.new {
+  background: linear-gradient(135deg, rgba(94,92,230,0.35) 0%, rgba(124,106,224,0.20) 100%);
+  border-color: rgba(124,106,224,0.40);
+}
+.file-action.new .name::after {
+  content: ' · NEW';
+  color: #B8B3FF; font-size: 10px; font-weight: 800; letter-spacing: 0.06em;
+}
+
+@media (max-width: 720px) { .files-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ── Demo placeholder ────────────────────────────────────── */
+.demo-block {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 40px;
+  margin-top: 32px;
+  text-align: center;
+}
+.demo-placeholder {
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #F2EEFF 0%, #E6E0FF 100%);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 14px;
+  color: var(--accent);
+  position: relative;
+}
+.demo-placeholder .play {
+  width: 76px; height: 76px;
+  background: var(--card); border-radius: 100px;
+  box-shadow: 0 8px 24px rgba(94,92,230,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; color: var(--accent);
+}
+.demo-placeholder .caption {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--accent);
+}
+.demo-script {
+  margin-top: 28px;
+  text-align: left;
+  font-size: 13px;
+  color: var(--muted);
+  background: var(--bg-soft);
+  border-radius: 12px;
+  padding: 18px 22px;
+  line-height: 1.7;
+}
+.demo-script strong { color: var(--text); font-weight: 700; }
+
+/* ── Closing slogan ─────────────────────────────────────── */
+.closing {
+  text-align: center;
+  padding: 120px 24px 60px;
+}
+.closing h2 {
+  font-size: 96px;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  background: linear-gradient(135deg, #5E5CE6 0%, #1D1D1F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.closing .tag {
+  margin-top: 24px;
+  font-size: 17px;
+  color: var(--muted);
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+footer .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 8px;
+}
+footer .footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+footer .footer-links a:hover {
+  color: var(--accent);
+}
+footer .copyright {
+  font-size: 12.5px;
+  opacity: 0.8;
+}
+
+/* ── Mobile general ─────────────────────────────────────── */
+@media (max-width: 720px) {
+  .hero { padding: 60px 20px 40px; }
+  .hero h1 { font-size: 52px; }
+  .hero h1 .zh { font-size: 52px; }
+  .hero .sub-1 { font-size: 19px; }
+  .hero .sub-2 { font-size: 15px; }
+  h2.section-title { font-size: 32px; }
+  .elevator { padding: 50px 24px; border-radius: 20px; }
+  .elevator h2 { font-size: 36px; }
+  .elevator p { font-size: 16px; }
+  .for-anyone h2 { font-size: 36px; }
+  .files { padding: 50px 24px; border-radius: 20px; }
+  .files h2 { font-size: 36px; }
+  .closing h2 { font-size: 60px; }
+  section { padding: 56px 20px; }
+}
+</style>
+</head>
+
+<body data-lang="en">
+
+<!-- ─────────────────────── NAV ─────────────────────── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Notch logo">
+        <defs>
+          <linearGradient id="notch-bg-nav" x1="0.5" y1="0" x2="0.5" y2="1">
+            <stop offset="0%" stop-color="#E8DCBE"/>
+            <stop offset="100%" stop-color="#A8B5C4"/>
+          </linearGradient>
+          <linearGradient id="notch-slash-nav" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#A0533A"/>
+            <stop offset="100%" stop-color="#7A3F2D"/>
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" rx="22" fill="url(#notch-bg-nav)"/>
+        <g stroke-linecap="round">
+          <line x1="28" y1="22" x2="28" y2="78" stroke="#1A2535" stroke-width="9"/>
+          <line x1="42" y1="22" x2="42" y2="78" stroke="#1A2535" stroke-width="9"/>
+          <line x1="58" y1="22" x2="58" y2="78" stroke="#1A2535" stroke-width="9"/>
+          <line x1="72" y1="22" x2="72" y2="78" stroke="#1A2535" stroke-width="9"/>
+          <line x1="18" y1="25" x2="82" y2="78" stroke="url(#notch-slash-nav)" stroke-width="9"/>
+        </g>
+      </svg>
+      <span>Notch</span>
+    </div>
+    <div class="lang-toggle">
+      <button data-lang="en" class="active">EN</button>
+      <button data-lang="zh">中</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ─────────────────────── HERO ─────────────────────── -->
+<header class="hero">
+  <div class="eyebrow">
+    <span class="en">BETA AVAILABLE ON APP STORE · LIMITED SEATS</span>
+    <span class="zh">App Store Beta · 名额有限</span>
+  </div>
+  <h1>
+    <span class="en">Before it fades, notch it.</span>
+    <span class="zh">想法易逝，Notch 留痕。</span>
+  </h1>
+  <p class="sub-1">
+    <span class="en">Speak the thought. Notch it. AI keeps building.</span>
+    <span class="zh">说出想法。Notch 一下。AI 接着用。</span>
+  </p>
+  <p class="sub-2">
+    <span class="en">Notch every fleeting thought — AI cleans them, weaves them, discusses with you, and surfaces patterns over time. Files yours to AirDrop, paste, take anywhere.</span>
+    <span class="zh">为每个转瞬即逝的想法留痕 — AI 帮你整理、合成、讨论、回头沉淀。文件归你 — AirDrop、粘贴、随时带走。</span>
+  </p>
+  <div class="cta-row">
+    <button class="cta">
+      <span class="en">Coming to iOS</span>
+      <span class="zh">即将登陆 iOS</span>
+      <span class="pill">SOON</span>
+    </button>
+    <button class="cta ghost">
+      <span class="en">Watch 30-sec demo →</span>
+      <span class="zh">看 30 秒 demo →</span>
+    </button>
+  </div>
+
+  <!-- Phone mockup -->
+  <div class="hero-visual">
+    <div class="phone">
+      <div class="phone-screen">
+        <div class="phone-chat">
+          <div class="bubble user">
+            <span class="en">Onboarding should show AI capability before privacy section. Remind me to send Sarah the deck Friday.</span>
+            <span class="zh">onboarding 应该先展示 AI 能力，再讲隐私。提醒我周五把 deck 发给 Sarah。</span>
+          </div>
+          <div class="bubble card">
+            <div class="card-h">🔔 <span class="en">Send Sarah the deck</span><span class="zh">把 deck 发给 Sarah</span></div>
+            <div class="card-meta"><span class="en">Friday · 9:00 AM</span><span class="zh">周五 · 9:00 AM</span></div>
+          </div>
+          <div class="bubble ai">
+            <span class="ai-tag"><span class="en">DRAFT FROM 4 MEMOS</span><span class="zh">合成自 4 条 MEMO</span></span>
+            <span class="en">Onboarding spec v2 — rethink the order: AI capability demo first (lowers privacy anxiety in context), then…</span>
+            <span class="zh">Onboarding spec v2 — 调整顺序：先 demo AI 能力（在上下文里降低隐私焦虑），再…</span>
+          </div>
+        </div>
+        <div class="phone-input">
+          <span class="placeholder"><span class="en">Hold to talk</span><span class="zh">按住说话</span></span>
+          <div class="mic">🎤</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─────────────────────── VALUE PAIR (ELEVATOR + FILES YOURS) ─────────────────────── -->
+<div class="value-pair">
+  <!-- Left: contrast hook + 4 core AI capabilities -->
+  <div class="elevator">
+    <div class="eyebrow-line">
+      <span class="en">WHAT THE AI DOES</span>
+      <span class="zh">AI 做四件事</span>
+    </div>
+    <h2>
+      <span class="en">Notes shouldn't sit there.</span>
+      <span class="zh">笔记不该录完就躺在那。</span>
+    </h2>
+    <p>
+      <span class="en">Every notch you make keeps working — alone, in combination, across weeks.</span>
+      <span class="zh">你留下的每条 notch 都不会闲着 — 单条、多条、跨周。</span>
+    </p>
+    <div class="ai-grid">
+      <div class="ai-action">
+        <div class="icon">✨</div>
+        <div class="name"><span class="en">Cleans</span><span class="zh">整理</span></div>
+        <div class="desc"><span class="en">Punctuation, jargon, typos — your voice, polished.</span><span class="zh">标点、人名、口误 — 你的话,润色干净。</span></div>
+      </div>
+      <div class="ai-action">
+        <div class="icon">🧵</div>
+        <div class="name"><span class="en">Weaves</span><span class="zh">合成</span></div>
+        <div class="desc"><span class="en">Many memos → one draft you can ship.</span><span class="zh">多条 memo → 一篇你能交付的文案。</span></div>
+      </div>
+      <div class="ai-action">
+        <div class="icon">💬</div>
+        <div class="name"><span class="en">Discusses</span><span class="zh">讨论</span></div>
+        <div class="desc"><span class="en">Ask anything; AI quotes your past memos back.</span><span class="zh">问任何东西,AI 引用你过去的原话答你。</span></div>
+      </div>
+      <div class="ai-action signature">
+        <div class="icon">🌱</div>
+        <div class="name"><span class="en">Reflects</span><span class="zh">沉淀</span></div>
+        <div class="desc"><span class="en">Weekly patterns surface themselves.</span><span class="zh">每周自动浮出本周的规律。</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Vault — portability / files-yours -->
+  <div class="files">
+    <div class="eyebrow-line">
+      <span class="en">YOUR VAULT, ANYWHERE</span>
+      <span class="zh">你的 Vault · 随处可用</span>
+    </div>
+    <h2>
+      <span class="en">Your Vault. Your files. No lock-in.</span>
+      <span class="zh">你的 Vault,你的文件,绝不绑定。</span>
+    </h2>
+    <p class="sub">
+      <span class="en">Every note lives in your Vault — a plain markdown folder on your phone, visible in Files. Stop using Notch tomorrow — your Vault still opens in any writing tool.</span>
+      <span class="zh">每条笔记都住在你的 Vault 里 — 手机上一个普通 markdown 文件夹,在 Files app 里可见。明天不用 Notch 了,Vault 依然在任何写作工具里打得开。</span>
+    </p>
+    <div class="files-grid">
+      <div class="file-action">
+        <div class="icon">📡</div>
+        <div class="name"><span class="en">AirDrop</span><span class="zh">AirDrop</span></div>
+        <div class="desc"><span class="en">One tap to a friend's phone.</span><span class="zh">一键发给朋友的手机。</span></div>
+      </div>
+      <div class="file-action">
+        <div class="icon">📋</div>
+        <div class="name"><span class="en">Copy &amp; paste</span><span class="zh">复制粘贴</span></div>
+        <div class="desc"><span class="en">Into email, Slack, any doc.</span><span class="zh">粘进邮件、Slack、文档。</span></div>
+      </div>
+      <div class="file-action new">
+        <div class="icon">🤖</div>
+        <div class="name"><span class="en">Hand to another agent</span><span class="zh">交给另一个 agent</span></div>
+        <div class="desc"><span class="en">Pass to any AI — they all read markdown.</span><span class="zh">交给任何 AI — 它们都读 markdown。</span></div>
+      </div>
+      <div class="file-action">
+        <div class="icon">📂</div>
+        <div class="name"><span class="en">Open anywhere</span><span class="zh">任何工具里打开</span></div>
+        <div class="desc"><span class="en">Obsidian, VS Code, iA Writer.</span><span class="zh">Obsidian、VS Code、iA Writer。</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────── BRAND PROVENANCE ─────────────────────── -->
+<div class="provenance">
+  <div class="eyebrow-line">
+    <span class="en">WHERE THE NAME COMES FROM</span>
+    <span class="zh">这个名字怎么来的</span>
+  </div>
+  <h2>
+    <span class="en">The notch is humanity's first note.</span>
+    <span class="zh">人类最早的笔记,是一条刻痕。</span>
+  </h2>
+  <p>
+    <span class="en">12,000 years before written language, we kept track by carving notches on tally sticks. Notch is that ancient act, rebuilt for voice and AI — so the things you don't want to forget actually stay.</span>
+    <span class="zh">一万两千年前还没有文字,人类就在木棒上刻 notch 来记账。Notch 把这个古老的动作重做了一遍 — 用语音、用 AI,让你不想忘的事真的留得住。</span>
+  </p>
+
+  <div class="tally-strip">
+    <svg viewBox="0 0 880 110" xmlns="http://www.w3.org/2000/svg" width="100%" height="110" aria-label="From ancient tally sticks to Notch">
+      <defs>
+        <linearGradient id="age-fade" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#C2A876" stop-opacity="0"/>
+          <stop offset="20%" stop-color="#A88E5C" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#6B5733" stop-opacity="0.95"/>
+        </linearGradient>
+        <linearGradient id="notch-bg-prov" x1="0.5" y1="0" x2="0.5" y2="1">
+          <stop offset="0%" stop-color="#E8DCBE"/>
+          <stop offset="100%" stop-color="#A8B5C4"/>
+        </linearGradient>
+        <linearGradient id="notch-slash-prov" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#A0533A"/>
+          <stop offset="100%" stop-color="#7A3F2D"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Faint baseline timeline -->
+      <line x1="40" y1="100" x2="840" y2="100" stroke="#C9B891" stroke-width="1" stroke-dasharray="2 4" opacity="0.6"/>
+
+      <!-- 7 muted tally groups (each = 4 vertical bars + 1 diagonal slash) fading in -->
+      <g stroke-linecap="round">
+        <!-- Group 1 (most faded) -->
+        <g opacity="0.18">
+          <line x1="62" y1="30" x2="62" y2="86" stroke="url(#age-fade)" stroke-width="5"/>
+          <line x1="72" y1="30" x2="72" y2="86" stroke="url(#age-fade)" stroke-width="5"/>
+          <line x1="82" y1="30" x2="82" y2="86" stroke="url(#age-fade)" stroke-width="5"/>
+          <line x1="92" y1="30" x2="92" y2="86" stroke="url(#age-fade)" stroke-width="5"/>
+          <line x1="55" y1="32" x2="100" y2="86" stroke="url(#age-fade)" stroke-width="5"/>
+        </g>
+        <!-- Group 2 -->
+        <g opacity="0.30">
+          <line x1="150" y1="30" x2="150" y2="86" stroke="#8B7250" stroke-width="5"/>
+          <line x1="160" y1="30" x2="160" y2="86" stroke="#8B7250" stroke-width="5"/>
+          <line x1="170" y1="30" x2="170" y2="86" stroke="#8B7250" stroke-width="5"/>
+          <line x1="180" y1="30" x2="180" y2="86" stroke="#8B7250" stroke-width="5"/>
+          <line x1="143" y1="32" x2="188" y2="86" stroke="#8B7250" stroke-width="5"/>
+        </g>
+        <!-- Group 3 -->
+        <g opacity="0.45">
+          <line x1="238" y1="30" x2="238" y2="86" stroke="#8B7250" stroke-width="5"/>
+          <line x1="248" y1="30" x2="248" y2="86" stroke="#8B7250" stroke-width="5"/>
+          <line x1="258" y1="30" x2="258" y2="86" stroke="#8B7250" stroke-width="5"/>
+          <line x1="268" y1="30" x2="268" y2="86" stroke="#8B7250" stroke-width="5"/>
+          <line x1="231" y1="32" x2="276" y2="86" stroke="#8B7250" stroke-width="5"/>
+        </g>
+        <!-- Group 4 -->
+        <g opacity="0.60">
+          <line x1="326" y1="30" x2="326" y2="86" stroke="#7A6240" stroke-width="5"/>
+          <line x1="336" y1="30" x2="336" y2="86" stroke="#7A6240" stroke-width="5"/>
+          <line x1="346" y1="30" x2="346" y2="86" stroke="#7A6240" stroke-width="5"/>
+          <line x1="356" y1="30" x2="356" y2="86" stroke="#7A6240" stroke-width="5"/>
+          <line x1="319" y1="32" x2="364" y2="86" stroke="#7A6240" stroke-width="5"/>
+        </g>
+        <!-- Group 5 -->
+        <g opacity="0.75">
+          <line x1="414" y1="30" x2="414" y2="86" stroke="#5C4A33" stroke-width="5"/>
+          <line x1="424" y1="30" x2="424" y2="86" stroke="#5C4A33" stroke-width="5"/>
+          <line x1="434" y1="30" x2="434" y2="86" stroke="#5C4A33" stroke-width="5"/>
+          <line x1="444" y1="30" x2="444" y2="86" stroke="#5C4A33" stroke-width="5"/>
+          <line x1="407" y1="32" x2="452" y2="86" stroke="#5C4A33" stroke-width="5"/>
+        </g>
+        <!-- Group 6 -->
+        <g opacity="0.90">
+          <line x1="502" y1="30" x2="502" y2="86" stroke="#3A2E1E" stroke-width="5"/>
+          <line x1="512" y1="30" x2="512" y2="86" stroke="#3A2E1E" stroke-width="5"/>
+          <line x1="522" y1="30" x2="522" y2="86" stroke="#3A2E1E" stroke-width="5"/>
+          <line x1="532" y1="30" x2="532" y2="86" stroke="#3A2E1E" stroke-width="5"/>
+          <line x1="495" y1="32" x2="540" y2="86" stroke="#3A2E1E" stroke-width="5"/>
+        </g>
+        <!-- Group 7 (full color) — the modern Notch logo -->
+        <g transform="translate(620, 14)">
+          <rect width="84" height="84" rx="19" fill="url(#notch-bg-prov)"/>
+          <g stroke-linecap="round">
+            <line x1="24" y1="18" x2="24" y2="66" stroke="#1A2535" stroke-width="7"/>
+            <line x1="36" y1="18" x2="36" y2="66" stroke="#1A2535" stroke-width="7"/>
+            <line x1="48" y1="18" x2="48" y2="66" stroke="#1A2535" stroke-width="7"/>
+            <line x1="60" y1="18" x2="60" y2="66" stroke="#1A2535" stroke-width="7"/>
+            <line x1="16" y1="21" x2="68" y2="66" stroke="url(#notch-slash-prov)" stroke-width="7"/>
+          </g>
+        </g>
+      </g>
+
+      <!-- Arrow connecting tradition → today (subtle) -->
+      <g transform="translate(580, 50)" opacity="0.5">
+        <line x1="0" y1="0" x2="30" y2="0" stroke="#8B6B3D" stroke-width="1.2"/>
+        <path d="M28,-4 L34,0 L28,4" fill="none" stroke="#8B6B3D" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+
+      <!-- Time labels -->
+      <text x="80" y="14" fill="#8B6B3D" font-size="9.5" font-weight="700" letter-spacing="0.6" font-family="-apple-system, BlinkMacSystemFont, sans-serif">12,000 BCE</text>
+      <text x="660" y="14" fill="#5E5CE6" font-size="9.5" font-weight="700" letter-spacing="0.6" font-family="-apple-system, BlinkMacSystemFont, sans-serif">TODAY</text>
+    </svg>
+  </div>
+
+  <div class="tally-caption">
+    <span class="en">SAME ACT · NEW TOOL</span>
+    <span class="zh">古老的动作 · 全新的工具</span>
+  </div>
+</div>
+
+<!-- ─────────────────────── 4-STEP CHAIN ─────────────────────── -->
+<section>
+  <div class="eyebrow-line">
+    <span class="en">THE VALUE CHAIN</span>
+    <span class="zh">价值链</span>
+  </div>
+  <h2 class="section-title">
+    <span class="en">Other apps stop at "clean transcript."<br>Notch keeps going.</span>
+    <span class="zh">别家停在"把语音变成文字"。<br>Notch 才刚开始。</span>
+  </h2>
+  <p class="section-sub">
+    <span class="en">Recording and cleaning are baseline. The real value is what happens after — when AI weaves your memos together, discusses them with you, and surfaces reflections over time.</span>
+    <span class="zh">录音和整理是 baseline，谁都做得到。Notch 的不一样在后面三步 — 合成、讨论、沉淀 — 才是 AI 真正在帮你"用"这些笔记。</span>
+  </p>
+
+  <div class="chain">
+    <div class="chain-step cold">
+      <div class="step-num">01 · BASELINE</div>
+      <div class="step-name"><span class="en">Scattered thoughts</span><span class="zh">零碎的想法</span></div>
+      <div class="step-desc"><span class="en">What you said — raw, on the move.</span><span class="zh">你刚刚说出来的话 — 路上、碎片、没成形。</span></div>
+    </div>
+    <div class="chain-step cold">
+      <div class="step-num">02 · BASELINE</div>
+      <div class="step-name"><span class="en">Clean notes</span><span class="zh">干净的笔记</span></div>
+      <div class="step-desc"><span class="en">AI fixes punctuation, jargon, typos.</span><span class="zh">AI 修标点、人名、专有名词、口误。</span></div>
+    </div>
+    <div class="chain-step warm">
+      <div class="step-num">03 · TALKIE</div>
+      <div class="step-name"><span class="en">Drafts from many</span><span class="zh">合成的文案</span></div>
+      <div class="step-desc"><span class="en">Multiple memos → one draft you can ship.</span><span class="zh">多条 memo → 一篇你能交付的文案。</span></div>
+    </div>
+    <div class="chain-step warm">
+      <div class="step-num">04 · TALKIE</div>
+      <div class="step-name"><span class="en">Discussions grounded</span><span class="zh">基于备忘的讨论</span></div>
+      <div class="step-desc"><span class="en">Ask anything. AI quotes your past memos back.</span><span class="zh">问任何问题。AI 引用你过去的原话答你。</span></div>
+    </div>
+    <div class="chain-step warm">
+      <div class="step-num">05 · TALKIE</div>
+      <div class="step-name"><span class="en">Reflections over time</span><span class="zh">沉淀的反思</span></div>
+      <div class="step-desc"><span class="en">Weekly patterns you'd otherwise miss.</span><span class="zh">每周自动浮现你自己没注意到的规律。</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────── FOR ANYONE ─────────────────────── -->
+<section class="for-anyone">
+  <h2>
+    <span class="en">For anyone whose ideas come faster than their fingers can type.</span>
+    <span class="zh">给那些想法跑得比打字快的人。</span>
+  </h2>
+</section>
+
+<!-- ─────────────────────── PERSONAS ─────────────────────── -->
+<section style="padding-top: 0;">
+  <div class="personas">
+    <div class="persona">
+      <div class="icon">👨‍🎓</div>
+      <div class="who"><span class="en">Student</span><span class="zh">学生</span></div>
+      <div class="how"><span class="en">Walks between classes recording fresh thesis ideas. By evening AI <strong>weaves them into an outline</strong>.</span><span class="zh">走在去教室的路上把刚冒出来的论文思路录下来。晚上 AI <strong>合成一段大纲</strong>。</span></div>
+      <div class="product">
+        <span class="product-label"><span class="en">ESSAY OUTLINE</span><span class="zh">论文大纲</span></span>
+        <div class="product-content"><span class="en">## Chapter 3 outline
+- Cognitive offloading via voice
+- 12 sources from Tuesday
+- Counter: Hayles 2008</span><span class="zh">## 第三章大纲
+- 语音的认知卸载
+- 周二找的 12 篇文献
+- 反驳: Hayles 2008</span></div>
+      </div>
+    </div>
+    <div class="persona">
+      <div class="icon">📈</div>
+      <div class="who"><span class="en">Trader</span><span class="zh">Trader</span></div>
+      <div class="how"><span class="en">Holds for one second mid-trade: "NVDA setup, watch it." End of day AI <strong>compiles 17 setup memos into a trade journal</strong>.</span><span class="zh">盘中按住录一秒:"NVDA 形态,盯着。"收盘 AI <strong>把 17 条 setup memo 合成一份 trade journal</strong>。</span></div>
+      <div class="product">
+        <span class="product-label"><span class="en">TRADE JOURNAL</span><span class="zh">交易日志</span></span>
+        <div class="product-content"><span class="en">NVDA · cup w/ handle setup
+Volume drying at $138
+Watch $142 break if SPX OK</span><span class="zh">NVDA · 茶杯带柄
+138 缩量
+SPX 配合则看 142 突破</span></div>
+      </div>
+    </div>
+    <div class="persona">
+      <div class="icon">🎥</div>
+      <div class="who"><span class="en">YouTuber</span><span class="zh">YouTuber</span></div>
+      <div class="how"><span class="en">Mid-editing, drops a next-episode hook. AI <strong>combines it with the last 3 episodes' material</strong> into a script draft.</span><span class="zh">剪片时想到下期 hook,立刻说出来。AI <strong>把它跟前 3 期素材合成一篇 script 草稿</strong>。</span></div>
+      <div class="product">
+        <span class="product-label"><span class="en">EP 24 OUTLINE</span><span class="zh">EP 24 大纲</span></span>
+        <div class="product-content"><span class="en">## Cold open
+Callback to EP 21's hook
+## Frame
+"What if the question is wrong?"</span><span class="zh">## 开场
+EP 21 的 hook 回扣
+## 框
+"问题本身是不是错的?"</span></div>
+      </div>
+    </div>
+    <div class="persona">
+      <div class="icon">✍️</div>
+      <div class="who"><span class="en">Writer</span><span class="zh">写作者</span></div>
+      <div class="how"><span class="en">Catches a line on the subway before the station. AI <strong>strings the day's fragments into a paragraph</strong>.</span><span class="zh">地铁上想到一句话,赶在停站前录下来。AI <strong>把今天的零碎句子串成一段</strong>。</span></div>
+      <div class="product">
+        <span class="product-label"><span class="en">PARAGRAPH</span><span class="zh">段落</span></span>
+        <div class="product-content"><span class="en">She'd watched the same
+window for an hour. Not
+waiting — letting light fail.</span><span class="zh">她对着同一扇窗户看了
+一小时。不是在等 —
+是看着光线消失。</span></div>
+      </div>
+    </div>
+    <div class="persona">
+      <div class="icon">🧠</div>
+      <div class="who"><span class="en">PM</span><span class="zh">PM</span></div>
+      <div class="how"><span class="en">By the water cooler, voices a new onboarding take. Friday AI <strong>cites this week's 5 related memos to draft a spec</strong>.</span><span class="zh">开会间隙路过水机,说出对 onboarding 的新想法。周五 AI <strong>引用她这周 5 次相关 memo 写一份 spec 草稿</strong>。</span></div>
+      <div class="product">
+        <span class="product-label"><span class="en">SPEC DRAFT</span><span class="zh">产品 SPEC</span></span>
+        <div class="product-content"><span class="en"># Onboarding v2
+## Why rethink
+3 users dropped at the
+privacy step this week</span><span class="zh"># Onboarding v2
+## 为什么重做
+本周 3 个用户在隐私
+步骤流失</span></div>
+      </div>
+    </div>
+    <div class="persona">
+      <div class="icon">🚀</div>
+      <div class="who"><span class="en">Founder</span><span class="zh">创业者</span></div>
+      <div class="how"><span class="en">Riffs on funding narrative while jogging. By the cooldown, AI <strong>has a pitch paragraph, compared against last week's</strong>.</span><span class="zh">晨跑时琢磨融资 narrative。跑完 AI <strong>已经写好一段 pitch,跟上周做了对比</strong>。</span></div>
+      <div class="product">
+        <span class="product-label"><span class="en">PITCH PARAGRAPH</span><span class="zh">PITCH 段落</span></span>
+        <div class="product-content"><span class="en">The bet: voice memos
+compound. Others are
+graveyards. We're a vault.</span><span class="zh">赌局:语音笔记会复利。
+别家是坟场,我们是
+让想法生长的金库。</span></div>
+      </div>
+    </div>
+    <div class="persona">
+      <div class="icon">📔</div>
+      <div class="who"><span class="en">Journaler</span><span class="zh">做日记的人</span></div>
+      <div class="how"><span class="en">Lies in bed talking about the day. Sunday AI <strong>surfaces "you kept circling X this week"</strong>.</span><span class="zh">睡前躺床上随便说说今天。周日 AI 自动沉淀出 <strong>"你这周一直在想 X"</strong>。</span></div>
+      <div class="product">
+        <span class="product-label"><span class="en">WEEKLY REFLECTION</span><span class="zh">周复盘</span></span>
+        <div class="product-content"><span class="en">You revisited "simplicity"
+5× this week. Tuesday's
+take contradicted Thursday's.</span><span class="zh">你这周 5 次回到「简单」。
+周二的说法和周四矛盾。
+值得想清楚。</span></div>
+      </div>
+    </div>
+    <div class="persona">
+      <div class="icon">💡</div>
+      <div class="who"><span class="en">Anyone</span><span class="zh">任何人</span></div>
+      <div class="how"><span class="en">Anyone with <strong>a head full of ideas, a phone within reach, and a thumb too slow to catch them all</strong>.</span><span class="zh">任何 <strong>脑子里全是想法、手机就在手边、手指跟不上脑子</strong> 的人。</span></div>
+      <div class="product">
+        <span class="product-label"><span class="en">AI CHAT</span><span class="zh">AI 对话</span></span>
+        <div class="product-content"><span class="en">You: What have I been
+worried about?
+AI: Tuesday onboarding (×2),
+Thursday revisited.</span><span class="zh">你:我这周一直担心啥?
+AI:周二 onboarding ×2,
+周四又回到这个。</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────── DEMO ─────────────────────── -->
+<section>
+  <div class="eyebrow-line">
+    <span class="en">SEE IT IN 30 SECONDS</span>
+    <span class="zh">30 秒看完</span>
+  </div>
+  <h2 class="section-title">
+    <span class="en">Talk it out.</span>
+    <span class="zh">想到就说出来。</span>
+  </h2>
+
+  <div class="demo-block">
+    <div class="demo-placeholder">
+      <div class="play">▶</div>
+      <div class="caption"><span class="en">30-SECOND HERO VIDEO · COMING SOON</span><span class="zh">30 秒主视频 · 即将发布</span></div>
+    </div>
+
+    <div class="demo-script">
+      <strong><span class="en">Storyboard:</span><span class="zh">分镜:</span></strong><br>
+      <span class="en"><strong>0-4s</strong> · Apple Voice Memos pile of untouched recordings · "Notes shouldn't sit there."<br>
+      <strong>4-9s</strong> · Tap-to-record on a walk · the memo appears as clean markdown · "Talk it out → a clean note."<br>
+      <strong>9-15s</strong> · Four past memos highlighted, user says "combine these into a spec" · structured doc appears · "Weaves them into drafts."<br>
+      <strong>15-21s</strong> · Chat view: "What have I been worried about?" · AI cites Tuesday and Thursday memos · "Discusses with you."<br>
+      <strong>21-26s</strong> · Sunday morning auto-reflection ties 5 memos into a pattern · "Surfaces reflections over time."<br>
+      <strong>26-30s</strong> · AirDrop to a friend → .md file in Files.app → handover to another agent · "All notes are yours."</span>
+      <span class="zh"><strong>0-4 秒</strong> · 镜头扫过 Apple Voice Memos 里几十条未打开的录音 · "笔记不该录完就躺在那。"<br>
+      <strong>4-9 秒</strong> · 走路时按住录音 → 一条干净的 markdown 笔记出现 · "想到就说 → 干净的笔记。"<br>
+      <strong>9-15 秒</strong> · 选中 4 条过去的 memo,说"合成一份 spec" · 结构化文档实时生成 · "合成文案。"<br>
+      <strong>15-21 秒</strong> · 聊天界面:"我一直在担心什么?" · AI 引用周二/周四 memo 回答 · "陪你聊明白。"<br>
+      <strong>21-26 秒</strong> · 周日早晨自动反思,把 5 条 memo 串成一个模式 · "沉淀出反思。"<br>
+      <strong>26-30 秒</strong> · AirDrop 给朋友 → Files.app 里的 .md 文件 → 交给另一个 agent · "文件归你。"</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────── CLOSING ─────────────────────── -->
+<section class="closing">
+  <h2>
+    <span class="en">Talk it out.</span>
+    <span class="zh">想到就说出来。</span>
+  </h2>
+  <p class="tag">
+    <span class="en">Notch · iOS · Coming soon</span>
+    <span class="zh">Notch · iOS · 即将到来</span>
+  </p>
+</section>
+
+<!-- ─────────────────────── FOOTER ─────────────────────── -->
+<footer>
+  <div class="footer-links">
+    <a href="/privacy"><span class="en">Privacy</span><span class="zh">隐私政策</span></a>
+    <a href="/terms"><span class="en">Terms</span><span class="zh">使用条款</span></a>
+    <a href="mailto:hello@notch.72mn.com">Contact</a>
+  </div>
+  <div class="copyright">
+    <span class="en">© 2026 Notch · Built in California.</span>
+    <span class="zh">© 2026 Notch · 加州出品。</span>
+  </div>
+</footer>
+
+<script>
+// Language toggle
+(function () {
+  const body = document.body;
+  const buttons = document.querySelectorAll('.lang-toggle button');
+  buttons.forEach((b) => {
+    b.addEventListener('click', () => {
+      const target = b.getAttribute('data-lang');
+      body.setAttribute('data-lang', target);
+      buttons.forEach((x) => x.classList.toggle('active', x === b));
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
