@@ -136,81 +136,168 @@ footer a:hover { color: var(--accent); text-decoration: none; }
 
 <main>
   <h1>Privacy Policy</h1>
-  <p class="subtitle">Last updated: June 9, 2026</p>
+  <p class="subtitle">Last updated: June 29, 2026 · Publisher: 72mn LLC</p>
 
   <div class="lead">
-    Captura is built local-first. Your notes live on your phone as plain files you own. We only send the slice of data each AI request needs — never your whole library, never to third-party advertisers, never for our training.
+    This Privacy Policy explains how Captura handles information when you use the Captura iOS app, website, subscriptions, AI features, voice features, and related services (together, the "Service").
   </div>
 
-  <h2>1. What we collect</h2>
-
-  <h3>1.1 Data that stays on your device</h3>
+  <h2>1. Short version</h2>
+  <p>Captura is designed as a private, local-first capture app.</p>
   <ul>
-    <li><strong>Your notes</strong> — every capture you make is stored locally in your phone's file system (visible in the iOS Files app, inside <em>your Vault</em>). They never leave your device unless you explicitly export, share, or trigger an AI action on them.</li>
-    <li><strong>Voice recordings</strong> — when you record, the audio is transcribed on-device using Apple's SFSpeechRecognizer. The audio file is discarded after transcription unless you choose to keep it.</li>
+    <li>Your chats, memos, notes, and generated outputs are stored on your device.</li>
+    <li>Captura does not provide group chats or shared spaces.</li>
+    <li>Captura does not store your chats or memos in a server-side chat database.</li>
+    <li>If you enable sync, your data may sync through your private Apple iCloud account using CloudKit.</li>
+    <li>If you use AI, transcription, or creation features, the content needed for that request may be sent to Captura servers and AI or transcription providers to process the request.</li>
+    <li>Captura may process account, subscription, credit, entitlement, diagnostic, and security information to operate the app.</li>
+    <li>We do not sell your personal information.</li>
+    <li>We do not use your chats, memos, or notes for advertising profiles or cross-context behavioral advertising.</li>
+    <li>We do not intentionally use your personal content to train foundation AI models.</li>
   </ul>
 
-  <h3>1.2 Data we send to AI providers</h3>
-  <p>When you ask Captura's AI to clean, weave, discuss, or reflect, we send the relevant slice of your notes to a language-model provider. v1 routes through our Pool (which uses Google Gemini, Anthropic Claude, DeepSeek, and xAI Grok depending on the task), or directly to your own provider if you've set up Bring-Your-Own-Token mode.</p>
-  <p>We do not send any data the request doesn't need. We do not retain copies of what was sent. The providers process the request and discard it per their own retention policies (linked below).</p>
+  <h2>2. Information Captura handles</h2>
 
-  <h3>1.3 Account data</h3>
-  <p>When you create an account, we store:</p>
+  <h3>Content you create</h3>
+  <p>Captura may store or process content you create in the app, such as:</p>
   <ul>
-    <li>Email address (for sign-in)</li>
-    <li>A Captura user ID (random UUID)</li>
-    <li>Subscription state and billing receipts (for Plus subscribers — handled by Apple's StoreKit)</li>
-    <li>Credit balance and usage ledger (for Free users)</li>
+    <li>Text notes, memos, chats, todos, reminders, labels, comments, reactions, and collections.</li>
+    <li>Voice recordings, transcripts, and waveform metadata.</li>
+    <li>AI prompts, AI replies, summaries, titles, cleaned-up text, and generated outputs.</li>
+    <li>Search queries and local search or semantic-index data.</li>
+    <li>Files or exports that you choose to create, open, import, or share.</li>
   </ul>
-  <p>We do not store passwords (we use passwordless email sign-in or Sign in with Apple).</p>
+  <p>This content is stored locally on your device. If iCloud sync is enabled, it may also be stored in your private iCloud account through Apple CloudKit. Captura does not store your chats or memos as permanent server-side chat records.</p>
 
-  <h3>1.4 Diagnostics</h3>
-  <p>If the app crashes or hits a bug, anonymized error reports are sent to Sentry (our error-tracking provider). No personal note content is included in these reports.</p>
+  <h3>AI and creation requests</h3>
+  <p>When you use AI-powered features, Captura sends only the content needed to complete that request. This may include your prompt, selected recent memos, selected context, generation options, model parameters, and the AI response.</p>
+  <p>Some AI requests are processed through Captura's server-side AI route so that we can provide included models, entitlement checks, provider routing, safety handling, and usage accounting. Async creation jobs may temporarily store the submitted request and generated result until the app collects the result; the result is then written back to your local device storage and the server job is deleted.</p>
+  <p>These AI-processing paths are not a server-side chat archive. We do not use them to store your full chat history on Captura servers.</p>
 
-  <h2>2. What we don't collect</h2>
+  <h3>Voice and transcription</h3>
+  <p>If you use voice features, Captura may process microphone audio, transcripts, language hints, file size, duration, and related technical data.</p>
+  <p>Some transcription may happen on your device through Apple speech-recognition technology. If you use premium or server-backed transcription, audio may be uploaded to Captura and forwarded to a transcription provider to produce a transcript. Captura is designed to process uploaded audio for the request and not keep it as a permanent server-side recording.</p>
+
+  <h3>Account and sign-in information</h3>
+  <p>If you sign in, subscribe, restore purchases, use Plus features, redeem credits, or use server-backed AI features, Captura may process:</p>
   <ul>
-    <li>We don't sell your data. Ever.</li>
-    <li>We don't use your notes to train AI models — neither ours nor any provider's.</li>
-    <li>We don't run advertising on Captura.</li>
-    <li>We don't share your data with advertisers, data brokers, or analytics platforms.</li>
-    <li>We don't track you across other apps or websites.</li>
-  </ul>
-
-  <h2>3. Your rights</h2>
-  <ul>
-    <li><strong>Export</strong> — every note is a plain markdown file. AirDrop, copy, sync to iCloud, or zip your entire Vault. You don't need our permission and you don't need our cooperation.</li>
-    <li><strong>Delete</strong> — delete a note locally and it's gone (no server-side ghost). Delete your account and we wipe your server-side records within 30 days.</li>
-    <li><strong>Access</strong> — your data IS your data. There's no extra "data access request" to file. It's already in your hands.</li>
-    <li><strong>Correct</strong> — same as above. Edit any file directly.</li>
+    <li>Apple sign-in identifiers and authentication session data.</li>
+    <li>Email address if Apple provides it, including private relay addresses if you use Hide My Email.</li>
+    <li>Account ID, display name, avatar choice, app user ID, and entitlement state.</li>
+    <li>Session tokens needed to keep you signed in.</li>
   </ul>
 
-  <h2>4. Third-party services we use</h2>
+  <h3>Purchases, subscriptions, and credits</h3>
+  <p>If you subscribe to Captura Plus+, restore a purchase, redeem credits, or use included AI features, Captura may process:</p>
   <ul>
-    <li><strong>Apple Sign-In / StoreKit</strong> — auth + subscription billing</li>
-    <li><strong>Supabase</strong> — account + entitlement records, deployed in [region]</li>
-    <li><strong>Google Gemini API</strong> — AI provider (Pool routing)</li>
-    <li><strong>Anthropic API</strong> — AI provider (Pool routing)</li>
-    <li><strong>DeepSeek API</strong> — AI provider (Pool routing)</li>
-    <li><strong>xAI API</strong> — AI provider (Pool routing)</li>
-    <li><strong>Tavily</strong> — web search (only when you explicitly invoke an AI action that needs current information)</li>
-    <li><strong>Sentry</strong> — anonymized error tracking</li>
+    <li>App Store product IDs, transaction IDs, original transaction IDs, subscription status, renewal state, current period dates, refund/revocation status, and StoreKit signed transaction information.</li>
+    <li>Credit balance, grants, debits, usage ledger entries, token counts, model/provider metadata, entitlement snapshots, and related billing or support records.</li>
   </ul>
+  <p>Apple processes App Store payments. Captura does not receive your full payment card details from Apple.</p>
 
-  <h2>5. Children</h2>
-  <p>Captura is not designed for children under 13 and we do not knowingly collect personal data from them.</p>
+  <h3>Diagnostics and app operations</h3>
+  <p>Captura may process:</p>
+  <ul>
+    <li>App version, OS version, device model, locale, time zone, crash reports, error reports, and performance or reliability diagnostics.</li>
+    <li>Push notification tokens and notification preferences.</li>
+    <li>Feature flags, service health metadata, and abuse-prevention or security logs.</li>
+  </ul>
+  <p>Our diagnostics are designed to avoid collecting personal content. We use scrubbing controls intended to remove prompts, transcripts, message content, API keys, tokens, email addresses, display names, and similar sensitive fields before diagnostic events are sent. No automated scrubber is perfect.</p>
 
-  <h2>6. Changes to this policy</h2>
-  <p>If we materially change this policy, we'll update the "Last updated" date and, for significant changes, notify you in-app or by email.</p>
+  <h3>Information Captura does not intentionally collect</h3>
+  <p>Captura does not intentionally collect precise location, contacts, calendars, photos, camera data, health data, or advertising identifiers unless a future feature asks for permission and this policy is updated.</p>
+  <p>Captura does not offer group chats or shared spaces in the current app.</p>
 
-  <h2>7. Contact</h2>
-  <p>Questions? Reach us at <a href="mailto:privacy@captura.72mn.com">privacy@captura.72mn.com</a>.</p>
+  <h2>3. How we use information</h2>
+  <p>We use information to:</p>
+  <ul>
+    <li>Provide, maintain, secure, and improve Captura.</li>
+    <li>Store and display your local content.</li>
+    <li>Sync your content across your Apple devices through iCloud when enabled.</li>
+    <li>Provide AI replies, cleanup, titles, summaries, creations, search, transcription, reminders, and exports.</li>
+    <li>Verify subscriptions, Plus access, credits, entitlements, restores, and refunds.</li>
+    <li>Send notifications or app status messages you enable.</li>
+    <li>Debug crashes, investigate errors, prevent abuse, enforce limits, and protect users.</li>
+    <li>Comply with law, App Store requirements, tax, accounting, and security obligations.</li>
+  </ul>
+  <p>We do not sell your personal information. We do not use your personal content for cross-context behavioral advertising.</p>
+  <p>We do not intentionally use your chats, memos, notes, or voice recordings to train foundation AI models. Third-party AI or transcription providers may process requests according to their own terms and privacy policies.</p>
+
+  <h2>4. Where information is stored</h2>
+
+  <h3>On your device</h3>
+  <p>Captura stores your content on your device, including local app databases and related files. iOS data-protection features help protect local files when your device is locked.</p>
+
+  <h3>iCloud</h3>
+  <p>If sync is enabled and available, Captura uses Apple CloudKit to sync data through your private iCloud account. Apple handles iCloud under Apple's terms and privacy policies. Captura cannot control all Apple iCloud retention, backup, or account settings.</p>
+
+  <h3>Captura servers</h3>
+  <p>Captura servers may process account, subscription, entitlement, credit, AI request, creation job, transcription, diagnostic, and security information needed to operate server-backed features.</p>
+  <p>Captura servers do not store your chats or memos as a permanent server-side chat database.</p>
+
+  <h3>Third-party providers</h3>
+  <p>Depending on the feature, Captura may use third-party providers for hosting, database infrastructure, error reporting, AI models, transcription, App Store purchases, and related operations. Provider availability and the exact provider list may change over time. We will update this policy or in-app disclosures when material practices change.</p>
+
+  <h2>5. When information is shared</h2>
+  <p>We may share information:</p>
+  <ul>
+    <li>With service providers that help us operate, host, secure, monitor, or support Captura.</li>
+    <li>With Apple for Sign in with Apple, iCloud, App Store purchases, push notifications, and device services.</li>
+    <li>With AI or transcription providers when you use features that require them.</li>
+    <li>With professional advisors, auditors, payment/tax providers, legal authorities, or law enforcement when required or appropriate.</li>
+    <li>In connection with a merger, acquisition, financing, reorganization, bankruptcy, or sale of assets, subject to appropriate protections.</li>
+    <li>With your direction or consent.</li>
+  </ul>
+  <p>We do not sell personal information for money and do not share personal information for cross-context behavioral advertising.</p>
+
+  <h2>6. Your choices</h2>
+  <p>You can:</p>
+  <ul>
+    <li>Use Captura's local capture features without storing your chats or memos on Captura servers.</li>
+    <li>Manage iCloud sync through your Apple account and iOS settings.</li>
+    <li>Manage microphone, speech recognition, notifications, and cellular-data permissions in iOS Settings.</li>
+    <li>Export supported content from the app.</li>
+    <li>Delete content in the app where controls are provided.</li>
+    <li>Sign out of your account.</li>
+    <li>Request account deletion where available in the app.</li>
+    <li>Manage or cancel App Store subscriptions in your Apple account settings.</li>
+  </ul>
+  <p>If you delete the app, iOS may remove local app data from that device. iCloud-synced data, App Store purchase records, and provider records may not be deleted automatically.</p>
+
+  <h2>7. Deletion and retention</h2>
+  <p>You may delete content in Captura and may request deletion of your account where the app provides that option. Account deletion is designed to remove server-side account data controlled by Captura, subject to retention needed for legal, tax, accounting, fraud-prevention, security, dispute-resolution, backup, or audit purposes.</p>
+  <p>Local data on your device remains until you delete it, wipe local data, or uninstall the app. iCloud-synced data may remain in your Apple account until removed through Captura, iCloud controls, or Apple account controls.</p>
+  <p>AI, transcription, and infrastructure providers may retain information according to their own terms and policies. Captura cannot delete data held independently by Apple or other providers except where those providers support deletion through our account or service controls.</p>
+
+  <h2>8. Privacy rights</h2>
+  <p>Depending on where you live, you may have rights to request access, correction, deletion, portability, restriction, objection, withdrawal of consent, or appeal of a privacy decision.</p>
+  <p>To make a privacy request, contact us at <a href="mailto:contact@72mn.com">contact@72mn.com</a>. We may need to verify your request. If you use Sign in with Apple Hide My Email, please contact us from the email address associated with your Captura account or provide enough information to verify account ownership.</p>
+  <p>California residents may have additional rights under California privacy laws. We do not sell personal information or share it for cross-context behavioral advertising. If that changes, we will update this policy and provide required opt-out controls.</p>
+  <p>Residents of the EEA, UK, Switzerland, and similar jurisdictions may have rights under local data-protection laws. Where required, our legal bases may include performance of a contract, consent, legitimate interests, compliance with legal obligations, and protection of vital or public interests.</p>
+
+  <h2>9. Security</h2>
+  <p>We use technical and organizational safeguards designed to protect information, including platform security controls, authentication, access controls, transport security, row-level access controls for server records, diagnostic scrubbing, and operational monitoring.</p>
+  <p>No system is perfectly secure. You are responsible for protecting your device, Apple account, Captura account, and exported files.</p>
+
+  <h2>10. Children</h2>
+  <p>Captura is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided personal information to Captura, contact us at <a href="mailto:contact@72mn.com">contact@72mn.com</a>.</p>
+
+  <h2>11. Changes</h2>
+  <p>We may update this Privacy Policy from time to time. If we make material changes, we will provide notice through the app, App Store listing, website, email, or another reasonable method.</p>
+
+  <h2>12. Contact</h2>
+  <p>72mn LLC<br>
+  1603 Capitol Ave<br>
+  Cheyenne, WY, US<br>
+  <a href="mailto:contact@72mn.com">contact@72mn.com</a><br>
+  <a href="/">captura.72mn.com</a></p>
 </main>
 
 <footer>
   <div class="footer-links">
     <a href="/privacy">Privacy</a>
     <a href="/terms">Terms</a>
-    <a href="mailto:hello@captura.72mn.com">Contact</a>
+    <a href="mailto:contact@72mn.com">Contact</a>
   </div>
   <div>© 2026 Captura · Built in California.</div>
 </footer>
