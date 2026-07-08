@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Captura — Compound your thoughts</title>
 <style>
-/* ──────────────────────────────────────────────────────────────────
-   Captura — landing page mock
-   单文件、双语切换、Apple-style aesthetic
-   ────────────────────────────────────────────────────────────────── */
+/* Captura — landing page */
 
 :root {
   --bg: #FBFAFC;
@@ -43,10 +40,6 @@ html, body {
 }
 a { color: inherit; text-decoration: none; }
 
-/* Lang toggle — body class controls visibility */
-body[data-lang="en"] .zh { display: none !important; }
-body[data-lang="zh"] .en { display: none !important; }
-
 /* ── Top nav ─────────────────────────────────────────────────── */
 .nav {
   position: sticky;
@@ -78,21 +71,6 @@ body[data-lang="zh"] .en { display: none !important; }
   border-radius: 7px;
   overflow: hidden;
 }
-.lang-toggle {
-  display: inline-flex;
-  background: var(--bg-soft); border-radius: 100px; padding: 3px;
-  font-size: 13px; font-weight: 500;
-}
-.lang-toggle button {
-  border: none; background: transparent; cursor: pointer;
-  padding: 6px 14px; border-radius: 100px;
-  color: var(--muted);
-  font-family: inherit; font-size: 13px; font-weight: 500;
-}
-.lang-toggle button.active {
-  background: var(--card); color: var(--text);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-}
 
 /* ── Hero ─────────────────────────────────────────────────────── */
 .hero {
@@ -122,7 +100,6 @@ body[data-lang="zh"] .en { display: none !important; }
   -webkit-text-fill-color: transparent;
   margin-bottom: 28px;
 }
-.hero h1 .zh { font-size: 72px; letter-spacing: -0.02em; }
 .hero .sub-1 {
   font-size: 24px;
   font-weight: 500;
@@ -770,8 +747,7 @@ footer .copyright {
 @media (max-width: 720px) {
   .hero { padding: 60px 20px 40px; }
   .hero h1 { font-size: 52px; }
-  .hero h1 .zh { font-size: 52px; }
-  .hero .sub-1 { font-size: 19px; }
+    .hero .sub-1 { font-size: 19px; }
   .hero .sub-2 { font-size: 15px; }
   h2.section-title { font-size: 32px; }
   .elevator { padding: 50px 24px; border-radius: 20px; }
@@ -786,7 +762,7 @@ footer .copyright {
 </style>
 </head>
 
-<body data-lang="en">
+<body>
 
 <!-- ─────────────────────── NAV ─────────────────────── -->
 <nav class="nav">
@@ -795,40 +771,36 @@ footer .copyright {
       <img class="logo-svg" src="/captura-logo.png" alt="Captura logo" />
       <span>Captura</span>
     </div>
-    <div class="lang-toggle">
-      <button data-lang="en" class="active">EN</button>
-      <button data-lang="zh">中</button>
-    </div>
   </div>
 </nav>
 
 <!-- ─────────────────────── HERO ─────────────────────── -->
 <header class="hero">
   <div class="eyebrow">
-    <span class="en">BETA AVAILABLE ON APP STORE · LIMITED SEATS</span>
-    <span class="zh">App Store Beta · 名额有限</span>
+    BETA AVAILABLE ON APP STORE · LIMITED SEATS
+    
   </div>
   <h1>
-    <span class="en">Before it fades, capture it.</span>
-    <span class="zh">想法易逝，Captura 留住。</span>
+    Before it fades, capture it.
+    
   </h1>
   <p class="sub-1">
-    <span class="en">Speak the thought. Capture it. AI keeps building.</span>
-    <span class="zh">说出想法。Captura 一下。AI 接着用。</span>
+    Speak the thought. Capture it. AI keeps building.
+    
   </p>
   <p class="sub-2">
-    <span class="en">Capture every fleeting thought — AI cleans them, weaves them, discusses with you, and surfaces patterns over time. Files yours to AirDrop, paste, take anywhere.</span>
-    <span class="zh">抓住每个转瞬即逝的想法 — AI 帮你整理、合成、讨论、回头沉淀。文件归你 — AirDrop、粘贴、随时带走。</span>
+    Capture every fleeting thought — AI cleans them, weaves them, discusses with you, and surfaces patterns over time. Files yours to AirDrop, paste, take anywhere.
+    
   </p>
   <div class="cta-row">
     <button class="cta">
-      <span class="en">Coming to iOS</span>
-      <span class="zh">即将登陆 iOS</span>
+      Coming to iOS
+      
       <span class="pill">SOON</span>
     </button>
     <button class="cta ghost">
-      <span class="en">Watch 30-sec demo →</span>
-      <span class="zh">看 30 秒 demo →</span>
+      Watch 30-sec demo →
+      
     </button>
   </div>
 
@@ -838,21 +810,21 @@ footer .copyright {
       <div class="phone-screen">
         <div class="phone-chat">
           <div class="bubble user">
-            <span class="en">Onboarding should show AI capability before privacy section. Remind me to send Sarah the deck Friday.</span>
-            <span class="zh">onboarding 应该先展示 AI 能力，再讲隐私。提醒我周五把 deck 发给 Sarah。</span>
+            Onboarding should show AI capability before privacy section. Remind me to send Sarah the deck Friday.
+            
           </div>
           <div class="bubble card">
-            <div class="card-h">🔔 <span class="en">Send Sarah the deck</span><span class="zh">把 deck 发给 Sarah</span></div>
-            <div class="card-meta"><span class="en">Friday · 9:00 AM</span><span class="zh">周五 · 9:00 AM</span></div>
+            <div class="card-h">🔔 Send Sarah the deck</div>
+            <div class="card-meta">Friday · 9:00 AM</div>
           </div>
           <div class="bubble ai">
-            <span class="ai-tag"><span class="en">DRAFT FROM 4 MEMOS</span><span class="zh">合成自 4 条 MEMO</span></span>
-            <span class="en">Onboarding spec v2 — rethink the order: AI capability demo first (lowers privacy anxiety in context), then…</span>
-            <span class="zh">Onboarding spec v2 — 调整顺序：先 demo AI 能力（在上下文里降低隐私焦虑），再…</span>
+            <span class="ai-tag">DRAFT FROM 4 MEMOS</span>
+            Onboarding spec v2 — rethink the order: AI capability demo first (lowers privacy anxiety in context), then…
+            
           </div>
         </div>
         <div class="phone-input">
-          <span class="placeholder"><span class="en">Hold to talk</span><span class="zh">按住说话</span></span>
+          <span class="placeholder">Hold to talk</span>
           <div class="mic">🎤</div>
         </div>
       </div>
@@ -865,37 +837,37 @@ footer .copyright {
   <!-- Left: contrast hook + 4 core AI capabilities -->
   <div class="elevator">
     <div class="eyebrow-line">
-      <span class="en">WHAT THE AI DOES</span>
-      <span class="zh">AI 做四件事</span>
+      WHAT THE AI DOES
+      
     </div>
     <h2>
-      <span class="en">Notes shouldn't sit there.</span>
-      <span class="zh">笔记不该录完就躺在那。</span>
+      Notes shouldn't sit there.
+      
     </h2>
     <p>
-      <span class="en">Every capture you make keeps working — alone, in combination, across weeks.</span>
-      <span class="zh">你 Captura 的每一条都不会闲着 — 单条、多条、跨周。</span>
+      Every capture you make keeps working — alone, in combination, across weeks.
+      
     </p>
     <div class="ai-grid">
       <div class="ai-action">
         <div class="icon">✨</div>
-        <div class="name"><span class="en">Cleans</span><span class="zh">整理</span></div>
-        <div class="desc"><span class="en">Punctuation, jargon, typos — your voice, polished.</span><span class="zh">标点、人名、口误 — 你的话,润色干净。</span></div>
+        <div class="name">Cleans</div>
+        <div class="desc">Punctuation, jargon, typos — your voice, polished.</div>
       </div>
       <div class="ai-action">
         <div class="icon">🧵</div>
-        <div class="name"><span class="en">Weaves</span><span class="zh">合成</span></div>
-        <div class="desc"><span class="en">Many memos → one draft you can ship.</span><span class="zh">多条 memo → 一篇你能交付的文案。</span></div>
+        <div class="name">Weaves</div>
+        <div class="desc">Many memos → one draft you can ship.</div>
       </div>
       <div class="ai-action">
         <div class="icon">💬</div>
-        <div class="name"><span class="en">Discusses</span><span class="zh">讨论</span></div>
-        <div class="desc"><span class="en">Ask anything; AI quotes your past memos back.</span><span class="zh">问任何东西,AI 引用你过去的原话答你。</span></div>
+        <div class="name">Discusses</div>
+        <div class="desc">Ask anything; AI quotes your past memos back.</div>
       </div>
       <div class="ai-action signature">
         <div class="icon">🌱</div>
-        <div class="name"><span class="en">Reflects</span><span class="zh">沉淀</span></div>
-        <div class="desc"><span class="en">Weekly patterns surface themselves.</span><span class="zh">每周自动浮出本周的规律。</span></div>
+        <div class="name">Reflects</div>
+        <div class="desc">Weekly patterns surface themselves.</div>
       </div>
     </div>
   </div>
@@ -903,37 +875,37 @@ footer .copyright {
   <!-- Right: Vault — portability / files-yours -->
   <div class="files">
     <div class="eyebrow-line">
-      <span class="en">YOUR VAULT, ANYWHERE</span>
-      <span class="zh">你的 Vault · 随处可用</span>
+      YOUR VAULT, ANYWHERE
+      
     </div>
     <h2>
-      <span class="en">Your Vault. Your files. No lock-in.</span>
-      <span class="zh">你的 Vault,你的文件,绝不绑定。</span>
+      Your Vault. Your files. No lock-in.
+      
     </h2>
     <p class="sub">
-      <span class="en">Every note lives in your Vault — a plain markdown folder on your phone, visible in Files. Stop using Captura tomorrow — your Vault still opens in any writing tool.</span>
-      <span class="zh">每条笔记都住在你的 Vault 里 — 手机上一个普通 markdown 文件夹,在 Files app 里可见。明天不用 Captura 了,Vault 依然在任何写作工具里打得开。</span>
+      Every note lives in your Vault — a plain markdown folder on your phone, visible in Files. Stop using Captura tomorrow — your Vault still opens in any writing tool.
+      
     </p>
     <div class="files-grid">
       <div class="file-action">
         <div class="icon">📡</div>
-        <div class="name"><span class="en">AirDrop</span><span class="zh">AirDrop</span></div>
-        <div class="desc"><span class="en">One tap to a friend's phone.</span><span class="zh">一键发给朋友的手机。</span></div>
+        <div class="name">AirDrop</div>
+        <div class="desc">One tap to a friend's phone.</div>
       </div>
       <div class="file-action">
         <div class="icon">📋</div>
-        <div class="name"><span class="en">Copy &amp; paste</span><span class="zh">复制粘贴</span></div>
-        <div class="desc"><span class="en">Into email, Slack, any doc.</span><span class="zh">粘进邮件、Slack、文档。</span></div>
+        <div class="name">Copy &amp; paste</div>
+        <div class="desc">Into email, Slack, any doc.</div>
       </div>
       <div class="file-action new">
         <div class="icon">🤖</div>
-        <div class="name"><span class="en">Hand to another agent</span><span class="zh">交给另一个 agent</span></div>
-        <div class="desc"><span class="en">Pass to any AI — they all read markdown.</span><span class="zh">交给任何 AI — 它们都读 markdown。</span></div>
+        <div class="name">Hand to another agent</div>
+        <div class="desc">Pass to any AI — they all read markdown.</div>
       </div>
       <div class="file-action">
         <div class="icon">📂</div>
-        <div class="name"><span class="en">Open anywhere</span><span class="zh">任何工具里打开</span></div>
-        <div class="desc"><span class="en">Obsidian, VS Code, iA Writer.</span><span class="zh">Obsidian、VS Code、iA Writer。</span></div>
+        <div class="name">Open anywhere</div>
+        <div class="desc">Obsidian, VS Code, iA Writer.</div>
       </div>
     </div>
   </div>
@@ -942,16 +914,16 @@ footer .copyright {
 <!-- ─────────────────────── BRAND PROVENANCE ─────────────────────── -->
 <div class="provenance">
   <div class="eyebrow-line">
-    <span class="en">WHERE THE NAME COMES FROM</span>
-    <span class="zh">这个名字怎么来的</span>
+    WHERE THE NAME COMES FROM
+    
   </div>
   <h2>
-    <span class="en">From Latin <em>capere</em> — to take, to hold.</span>
-    <span class="zh">源自拉丁文 <em>capere</em> — 取下,握住。</span>
+    From Latin <em>capere</em> — to take, to hold.
+    
   </h2>
   <p>
-    <span class="en">For two thousand years, <em>capere</em> has meant the same thing — to take hold of what would otherwise slip away. Captura rebuilds that act for voice and AI — so the things you don't want to forget actually stay.</span>
-    <span class="zh">两千年来,拉丁文 capere 一直在做同一件事 — 把本要溜走的东西握在手里。Captura 把这个古老的动作重做了一遍 — 用语音、用 AI,让你不想忘的事真的留得住。</span>
+    For two thousand years, <em>capere</em> has meant the same thing — to take hold of what would otherwise slip away. Captura rebuilds that act for voice and AI — so the things you don't want to forget actually stay.
+    
   </p>
 
   <div class="tally-strip">
@@ -992,7 +964,6 @@ footer .copyright {
       <!-- Right: modern Captura logo (PNG) -->
       <image href="/captura-logo.png" x="580" y="14" width="84" height="84" />
 
-
       <!-- Brand wordmark -->
       <text x="685" y="65"
             font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
@@ -1008,51 +979,51 @@ footer .copyright {
   </div>
 
   <div class="tally-caption">
-    <span class="en">SAME ACT · NEW TOOL</span>
-    <span class="zh">古老的动作 · 全新的工具</span>
+    SAME ACT · NEW TOOL
+    
   </div>
 </div>
 
 <!-- ─────────────────────── 4-STEP CHAIN ─────────────────────── -->
 <section>
   <div class="eyebrow-line">
-    <span class="en">THE VALUE CHAIN</span>
-    <span class="zh">价值链</span>
+    THE VALUE CHAIN
+    
   </div>
   <h2 class="section-title">
-    <span class="en">Other apps stop at "clean transcript."<br>Captura keeps going.</span>
-    <span class="zh">别家停在"把语音变成文字"。<br>Captura 才刚开始。</span>
+    Other apps stop at "clean transcript."<br>Captura keeps going.
+    
   </h2>
   <p class="section-sub">
-    <span class="en">Recording and cleaning are baseline. The real value is what happens after — when AI weaves your memos together, discusses them with you, and surfaces reflections over time.</span>
-    <span class="zh">录音和整理是 baseline，谁都做得到。Captura 的不一样在后面三步 — 合成、讨论、沉淀 — 才是 AI 真正在帮你"用"这些笔记。</span>
+    Recording and cleaning are baseline. The real value is what happens after — when AI weaves your memos together, discusses them with you, and surfaces reflections over time.
+    
   </p>
 
   <div class="chain">
     <div class="chain-step cold">
       <div class="step-num">01 · BASELINE</div>
-      <div class="step-name"><span class="en">Scattered thoughts</span><span class="zh">零碎的想法</span></div>
-      <div class="step-desc"><span class="en">What you said — raw, on the move.</span><span class="zh">你刚刚说出来的话 — 路上、碎片、没成形。</span></div>
+      <div class="step-name">Scattered thoughts</div>
+      <div class="step-desc">What you said — raw, on the move.</div>
     </div>
     <div class="chain-step cold">
       <div class="step-num">02 · BASELINE</div>
-      <div class="step-name"><span class="en">Clean notes</span><span class="zh">干净的笔记</span></div>
-      <div class="step-desc"><span class="en">AI fixes punctuation, jargon, typos.</span><span class="zh">AI 修标点、人名、专有名词、口误。</span></div>
+      <div class="step-name">Clean notes</div>
+      <div class="step-desc">AI fixes punctuation, jargon, typos.</div>
     </div>
     <div class="chain-step warm">
       <div class="step-num">03 · TALKIE</div>
-      <div class="step-name"><span class="en">Drafts from many</span><span class="zh">合成的文案</span></div>
-      <div class="step-desc"><span class="en">Multiple memos → one draft you can ship.</span><span class="zh">多条 memo → 一篇你能交付的文案。</span></div>
+      <div class="step-name">Drafts from many</div>
+      <div class="step-desc">Multiple memos → one draft you can ship.</div>
     </div>
     <div class="chain-step warm">
       <div class="step-num">04 · TALKIE</div>
-      <div class="step-name"><span class="en">Discussions grounded</span><span class="zh">基于备忘的讨论</span></div>
-      <div class="step-desc"><span class="en">Ask anything. AI quotes your past memos back.</span><span class="zh">问任何问题。AI 引用你过去的原话答你。</span></div>
+      <div class="step-name">Discussions grounded</div>
+      <div class="step-desc">Ask anything. AI quotes your past memos back.</div>
     </div>
     <div class="chain-step warm">
       <div class="step-num">05 · TALKIE</div>
-      <div class="step-name"><span class="en">Reflections over time</span><span class="zh">沉淀的反思</span></div>
-      <div class="step-desc"><span class="en">Weekly patterns you'd otherwise miss.</span><span class="zh">每周自动浮现你自己没注意到的规律。</span></div>
+      <div class="step-name">Reflections over time</div>
+      <div class="step-desc">Weekly patterns you'd otherwise miss.</div>
     </div>
   </div>
 </section>
@@ -1060,8 +1031,8 @@ footer .copyright {
 <!-- ─────────────────────── FOR ANYONE ─────────────────────── -->
 <section class="for-anyone">
   <h2>
-    <span class="en">For anyone whose ideas come faster than their fingers can type.</span>
-    <span class="zh">给那些想法跑得比打字快的人。</span>
+    For anyone whose ideas come faster than their fingers can type.
+    
   </h2>
 </section>
 
@@ -1070,113 +1041,94 @@ footer .copyright {
   <div class="personas">
     <div class="persona">
       <div class="icon">👨‍🎓</div>
-      <div class="who"><span class="en">Student</span><span class="zh">学生</span></div>
-      <div class="how"><span class="en">Walks between classes recording fresh thesis ideas. By evening AI <strong>weaves them into an outline</strong>.</span><span class="zh">走在去教室的路上把刚冒出来的论文思路录下来。晚上 AI <strong>合成一段大纲</strong>。</span></div>
+      <div class="who">Student</div>
+      <div class="how">Walks between classes recording fresh thesis ideas. By evening AI <strong>weaves them into an outline</strong>.</div>
       <div class="product">
-        <span class="product-label"><span class="en">ESSAY OUTLINE</span><span class="zh">论文大纲</span></span>
-        <div class="product-content"><span class="en">## Chapter 3 outline
+        <span class="product-label">ESSAY OUTLINE</span>
+        <div class="product-content">## Chapter 3 outline
 - Cognitive offloading via voice
 - 12 sources from Tuesday
-- Counter: Hayles 2008</span><span class="zh">## 第三章大纲
-- 语音的认知卸载
-- 周二找的 12 篇文献
-- 反驳: Hayles 2008</span></div>
+- Counter: Hayles 2008</div>
       </div>
     </div>
     <div class="persona">
       <div class="icon">📈</div>
-      <div class="who"><span class="en">Trader</span><span class="zh">Trader</span></div>
-      <div class="how"><span class="en">Holds for one second mid-trade: "NVDA setup, watch it." End of day AI <strong>compiles 17 setup memos into a trade journal</strong>.</span><span class="zh">盘中按住录一秒:"NVDA 形态,盯着。"收盘 AI <strong>把 17 条 setup memo 合成一份 trade journal</strong>。</span></div>
+      <div class="who">Trader</div>
+      <div class="how">Holds for one second mid-trade: "NVDA setup, watch it." End of day AI <strong>compiles 17 setup memos into a trade journal</strong>.</div>
       <div class="product">
-        <span class="product-label"><span class="en">TRADE JOURNAL</span><span class="zh">交易日志</span></span>
-        <div class="product-content"><span class="en">NVDA · cup w/ handle setup
+        <span class="product-label">TRADE JOURNAL</span>
+        <div class="product-content">NVDA · cup w/ handle setup
 Volume drying at $138
-Watch $142 break if SPX OK</span><span class="zh">NVDA · 茶杯带柄
-138 缩量
-SPX 配合则看 142 突破</span></div>
+Watch $142 break if SPX OK</div>
       </div>
     </div>
     <div class="persona">
       <div class="icon">🎥</div>
-      <div class="who"><span class="en">YouTuber</span><span class="zh">YouTuber</span></div>
-      <div class="how"><span class="en">Mid-editing, drops a next-episode hook. AI <strong>combines it with the last 3 episodes' material</strong> into a script draft.</span><span class="zh">剪片时想到下期 hook,立刻说出来。AI <strong>把它跟前 3 期素材合成一篇 script 草稿</strong>。</span></div>
+      <div class="who">YouTuber</div>
+      <div class="how">Mid-editing, drops a next-episode hook. AI <strong>combines it with the last 3 episodes' material</strong> into a script draft.</div>
       <div class="product">
-        <span class="product-label"><span class="en">EP 24 OUTLINE</span><span class="zh">EP 24 大纲</span></span>
-        <div class="product-content"><span class="en">## Cold open
+        <span class="product-label">EP 24 OUTLINE</span>
+        <div class="product-content">## Cold open
 Callback to EP 21's hook
 ## Frame
-"What if the question is wrong?"</span><span class="zh">## 开场
-EP 21 的 hook 回扣
-## 框
-"问题本身是不是错的?"</span></div>
+"What if the question is wrong?"</div>
       </div>
     </div>
     <div class="persona">
       <div class="icon">✍️</div>
-      <div class="who"><span class="en">Writer</span><span class="zh">写作者</span></div>
-      <div class="how"><span class="en">Catches a line on the subway before the station. AI <strong>strings the day's fragments into a paragraph</strong>.</span><span class="zh">地铁上想到一句话,赶在停站前录下来。AI <strong>把今天的零碎句子串成一段</strong>。</span></div>
+      <div class="who">Writer</div>
+      <div class="how">Catches a line on the subway before the station. AI <strong>strings the day's fragments into a paragraph</strong>.</div>
       <div class="product">
-        <span class="product-label"><span class="en">PARAGRAPH</span><span class="zh">段落</span></span>
-        <div class="product-content"><span class="en">She'd watched the same
+        <span class="product-label">PARAGRAPH</span>
+        <div class="product-content">She'd watched the same
 window for an hour. Not
-waiting — letting light fail.</span><span class="zh">她对着同一扇窗户看了
-一小时。不是在等 —
-是看着光线消失。</span></div>
+waiting — letting light fail.</div>
       </div>
     </div>
     <div class="persona">
       <div class="icon">🧠</div>
-      <div class="who"><span class="en">PM</span><span class="zh">PM</span></div>
-      <div class="how"><span class="en">By the water cooler, voices a new onboarding take. Friday AI <strong>cites this week's 5 related memos to draft a spec</strong>.</span><span class="zh">开会间隙路过水机,说出对 onboarding 的新想法。周五 AI <strong>引用她这周 5 次相关 memo 写一份 spec 草稿</strong>。</span></div>
+      <div class="who">PM</div>
+      <div class="how">By the water cooler, voices a new onboarding take. Friday AI <strong>cites this week's 5 related memos to draft a spec</strong>.</div>
       <div class="product">
-        <span class="product-label"><span class="en">SPEC DRAFT</span><span class="zh">产品 SPEC</span></span>
-        <div class="product-content"><span class="en"># Onboarding v2
+        <span class="product-label">SPEC DRAFT</span>
+        <div class="product-content"># Onboarding v2
 ## Why rethink
 3 users dropped at the
-privacy step this week</span><span class="zh"># Onboarding v2
-## 为什么重做
-本周 3 个用户在隐私
-步骤流失</span></div>
+privacy step this week</div>
       </div>
     </div>
     <div class="persona">
       <div class="icon">🚀</div>
-      <div class="who"><span class="en">Founder</span><span class="zh">创业者</span></div>
-      <div class="how"><span class="en">Riffs on funding narrative while jogging. By the cooldown, AI <strong>has a pitch paragraph, compared against last week's</strong>.</span><span class="zh">晨跑时琢磨融资 narrative。跑完 AI <strong>已经写好一段 pitch,跟上周做了对比</strong>。</span></div>
+      <div class="who">Founder</div>
+      <div class="how">Riffs on funding narrative while jogging. By the cooldown, AI <strong>has a pitch paragraph, compared against last week's</strong>.</div>
       <div class="product">
-        <span class="product-label"><span class="en">PITCH PARAGRAPH</span><span class="zh">PITCH 段落</span></span>
-        <div class="product-content"><span class="en">The bet: voice memos
+        <span class="product-label">PITCH PARAGRAPH</span>
+        <div class="product-content">The bet: voice memos
 compound. Others are
-graveyards. We're a vault.</span><span class="zh">赌局:语音笔记会复利。
-别家是坟场,我们是
-让想法生长的金库。</span></div>
+graveyards. We're a vault.</div>
       </div>
     </div>
     <div class="persona">
       <div class="icon">📔</div>
-      <div class="who"><span class="en">Journaler</span><span class="zh">做日记的人</span></div>
-      <div class="how"><span class="en">Lies in bed talking about the day. Sunday AI <strong>surfaces "you kept circling X this week"</strong>.</span><span class="zh">睡前躺床上随便说说今天。周日 AI 自动沉淀出 <strong>"你这周一直在想 X"</strong>。</span></div>
+      <div class="who">Journaler</div>
+      <div class="how">Lies in bed talking about the day. Sunday AI <strong>surfaces "you kept circling X this week"</strong>.</div>
       <div class="product">
-        <span class="product-label"><span class="en">WEEKLY REFLECTION</span><span class="zh">周复盘</span></span>
-        <div class="product-content"><span class="en">You revisited "simplicity"
+        <span class="product-label">WEEKLY REFLECTION</span>
+        <div class="product-content">You revisited "simplicity"
 5× this week. Tuesday's
-take contradicted Thursday's.</span><span class="zh">你这周 5 次回到「简单」。
-周二的说法和周四矛盾。
-值得想清楚。</span></div>
+take contradicted Thursday's.</div>
       </div>
     </div>
     <div class="persona">
       <div class="icon">💡</div>
-      <div class="who"><span class="en">Anyone</span><span class="zh">任何人</span></div>
-      <div class="how"><span class="en">Anyone with <strong>a head full of ideas, a phone within reach, and a thumb too slow to catch them all</strong>.</span><span class="zh">任何 <strong>脑子里全是想法、手机就在手边、手指跟不上脑子</strong> 的人。</span></div>
+      <div class="who">Anyone</div>
+      <div class="how">Anyone with <strong>a head full of ideas, a phone within reach, and a thumb too slow to catch them all</strong>.</div>
       <div class="product">
-        <span class="product-label"><span class="en">AI CHAT</span><span class="zh">AI 对话</span></span>
-        <div class="product-content"><span class="en">You: What have I been
+        <span class="product-label">AI CHAT</span>
+        <div class="product-content">You: What have I been
 worried about?
 AI: Tuesday onboarding (×2),
-Thursday revisited.</span><span class="zh">你:我这周一直担心啥?
-AI:周二 onboarding ×2,
-周四又回到这个。</span></div>
+Thursday revisited.</div>
       </div>
     </div>
   </div>
@@ -1185,34 +1137,29 @@ AI:周二 onboarding ×2,
 <!-- ─────────────────────── DEMO ─────────────────────── -->
 <section>
   <div class="eyebrow-line">
-    <span class="en">SEE IT IN 30 SECONDS</span>
-    <span class="zh">30 秒看完</span>
+    SEE IT IN 30 SECONDS
+    
   </div>
   <h2 class="section-title">
-    <span class="en">Talk it out.</span>
-    <span class="zh">想到就说出来。</span>
+    Talk it out.
+    
   </h2>
 
   <div class="demo-block">
     <div class="demo-placeholder">
       <div class="play">▶</div>
-      <div class="caption"><span class="en">30-SECOND HERO VIDEO · COMING SOON</span><span class="zh">30 秒主视频 · 即将发布</span></div>
+      <div class="caption">30-SECOND HERO VIDEO · COMING SOON</div>
     </div>
 
     <div class="demo-script">
-      <strong><span class="en">Storyboard:</span><span class="zh">分镜:</span></strong><br>
-      <span class="en"><strong>0-4s</strong> · Apple Voice Memos pile of untouched recordings · "Notes shouldn't sit there."<br>
+      <strong>Storyboard:</strong><br>
+      <strong>0-4s</strong> · Apple Voice Memos pile of untouched recordings · "Notes shouldn't sit there."<br>
       <strong>4-9s</strong> · Tap-to-record on a walk · the memo appears as clean markdown · "Talk it out → a clean note."<br>
       <strong>9-15s</strong> · Four past memos highlighted, user says "combine these into a spec" · structured doc appears · "Weaves them into drafts."<br>
       <strong>15-21s</strong> · Chat view: "What have I been worried about?" · AI cites Tuesday and Thursday memos · "Discusses with you."<br>
       <strong>21-26s</strong> · Sunday morning auto-reflection ties 5 memos into a pattern · "Surfaces reflections over time."<br>
-      <strong>26-30s</strong> · AirDrop to a friend → .md file in Files.app → handover to another agent · "All notes are yours."</span>
-      <span class="zh"><strong>0-4 秒</strong> · 镜头扫过 Apple Voice Memos 里几十条未打开的录音 · "笔记不该录完就躺在那。"<br>
-      <strong>4-9 秒</strong> · 走路时按住录音 → 一条干净的 markdown 笔记出现 · "想到就说 → 干净的笔记。"<br>
-      <strong>9-15 秒</strong> · 选中 4 条过去的 memo,说"合成一份 spec" · 结构化文档实时生成 · "合成文案。"<br>
-      <strong>15-21 秒</strong> · 聊天界面:"我一直在担心什么?" · AI 引用周二/周四 memo 回答 · "陪你聊明白。"<br>
-      <strong>21-26 秒</strong> · 周日早晨自动反思,把 5 条 memo 串成一个模式 · "沉淀出反思。"<br>
-      <strong>26-30 秒</strong> · AirDrop 给朋友 → Files.app 里的 .md 文件 → 交给另一个 agent · "文件归你。"</span>
+      <strong>26-30s</strong> · AirDrop to a friend → .md file in Files.app → handover to another agent · "All notes are yours."
+      
     </div>
   </div>
 </section>
@@ -1220,42 +1167,27 @@ AI:周二 onboarding ×2,
 <!-- ─────────────────────── CLOSING ─────────────────────── -->
 <section class="closing">
   <h2>
-    <span class="en">Talk it out.</span>
-    <span class="zh">想到就说出来。</span>
+    Talk it out.
+    
   </h2>
   <p class="tag">
-    <span class="en">Captura · iOS · Coming soon</span>
-    <span class="zh">Captura · iOS · 即将到来</span>
+    Captura · iOS · Coming soon
+    
   </p>
 </section>
 
 <!-- ─────────────────────── FOOTER ─────────────────────── -->
 <footer>
   <div class="footer-links">
-    <a href="/privacy"><span class="en">Privacy</span><span class="zh">隐私政策</span></a>
-    <a href="/terms"><span class="en">Terms</span><span class="zh">使用条款</span></a>
-    <a href="mailto:hello@captura.72mn.com">Contact</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="mailto:contact@captura.72mn.com">Contact</a>
   </div>
   <div class="copyright">
-    <span class="en">© 2026 Captura · Built in California.</span>
-    <span class="zh">© 2026 Captura · 加州出品。</span>
+    © 2026 Captura · Built in California.
+    
   </div>
 </footer>
-
-<script>
-// Language toggle
-(function () {
-  const body = document.body;
-  const buttons = document.querySelectorAll('.lang-toggle button');
-  buttons.forEach((b) => {
-    b.addEventListener('click', () => {
-      const target = b.getAttribute('data-lang');
-      body.setAttribute('data-lang', target);
-      buttons.forEach((x) => x.classList.toggle('active', x === b));
-    });
-  });
-})();
-</script>
 
 </body>
 </html>
